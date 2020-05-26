@@ -309,8 +309,9 @@ export class Kunde {
      */
     toJSON(): KundeServer {
         const geburtsdatum =
-            // eslint-disable-next-line prettier/prettier,max-len
-           this.geburtsdatum === undefined ? undefined : this.geburtsdatum.toISOString();
+            this.geburtsdatum === undefined
+                ? undefined
+                : this.geburtsdatum.toISOString();
         console.log(`toJSON(): datum=${geburtsdatum}`);
         return {
             _id: this._id,

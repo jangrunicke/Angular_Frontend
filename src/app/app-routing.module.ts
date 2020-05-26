@@ -14,15 +14,14 @@ const routes: Routes = [
         path: HOME_PATH,
         component: HomeComponent,
     },
+    {
+        path: 'kunden',
+        loadChildren: () =>
+            import('./kunde/kunde-routing.module').then(
+                mod => mod.KundeRoutingModule,
+            ),
+    },
 ];
-// {
-//     path: 'kunde',
-//     loadChildren: () =>
-//         import('./kunde/kunde-routing.module').then(
-//             mod => mod.KundeRoutingModule,
-//         ),
-// },
-// ];
 
 @NgModule({
     exports: [RouterModule],
