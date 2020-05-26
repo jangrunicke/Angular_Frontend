@@ -14,6 +14,7 @@
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { LoginLogoutModule } from './login-logout.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -27,6 +28,7 @@ import { NgModule } from '@angular/core';
 
     imports: [
         CommonModule,
+        LoginLogoutModule,
         MatButtonModule,
         MatToolbarModule,
         MatSidenavModule,

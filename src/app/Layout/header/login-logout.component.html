@@ -1,0 +1,37 @@
+<form 
+    class="login-form"
+    (submit)="onLogin()"
+    autocomplete="off"
+    role="form">
+    <mat-form-field appearance="legacy">
+        <mat-label for="usernameInput">
+            <small>Benutzername:</small>
+        </mat-label>
+        <input matInput
+            id="usernameInput"
+            type="search"
+            tabindex="1"
+            autocomplete="off"
+            required
+            [(ngModel)]="username"
+            name="username">
+    </mat-form-field>
+    <span class="spacer"></span>
+    <mat-form-field appearance="legacy">
+        <mat-label for="passwordInput">
+            <small>passwort</small>
+        </mat-label>
+        <input matInput
+            type="password"
+            id="passwordInput"
+            tabindex="2"
+            autocomplete="off"
+            required
+            [(ngModel)]="password"
+            name="password">
+    </mat-form-field>
+    <button mat-raised-button color="accent"
+        type="submit" tabindex="3">
+        Log-In
+    </button>
+</form>
