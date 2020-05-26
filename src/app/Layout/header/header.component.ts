@@ -1,5 +1,7 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { map, shareReplay } from 'rxjs/operators';
 import { Component } from '@angular/core';
-import { MediaMatcher } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'hs-header',
@@ -7,9 +9,13 @@ import { MediaMatcher } from '@angular/cdk/layout';
     styleUrls: ['./header.componenent.css'],
 })
 export class HeaderComponent {
-    private _mobileQueryListener: () => void;
-
-    constructor() {
-        console.log('FooterComponent.constructor()');
+    isHandset$: Observable<boolean> = this.breakpointObserver
+        .observe(Breakpoints.Handset)
+        .pipe(
+            map(result => result.matches),
+            shareReplay(),
+        );
+    constructor(private breakpointObserver: BreakpointObserver) {
+        console.log('HeaderComponent.constructor()');
     }
 }
