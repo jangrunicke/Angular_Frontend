@@ -1,4 +1,10 @@
-<form class="login-form" (submit)="onLogin()" autocomplete="off" role="form">
+<form
+  class="login-form"
+  (submit)="onLogin()"
+  autocomplete="off"
+  role="form"
+  *ngIf="notLoggedIn; else loggedIn"
+>
   <mat-form-field appearance="legacy">
     <mat-label for="usernameInput">
       <small>Benutzername:</small>
@@ -34,3 +40,9 @@
     Log-In
   </button>
 </form>
+
+<ng-template #loggedIn>
+  <button mat-raised-button color="accent" type="submit" (click)="onLogout()">
+    Logout
+  </button>
+</ng-template>

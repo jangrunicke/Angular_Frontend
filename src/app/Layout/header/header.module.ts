@@ -21,6 +21,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: [HeaderComponent],
@@ -35,6 +36,7 @@ import { NgModule } from '@angular/core';
         MatIconModule,
         MatListModule,
         LayoutModule,
+        RouterModule,
     ],
 })
 export class HeaderModule {}

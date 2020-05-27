@@ -6,10 +6,8 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 /**
- * Komponente fuer das Login mit dem Tag hs-login-logout
- *
+ * Komponente f&uuml;r das Login mit dem Tag &lt;hs-login-logout&gt;.
  */
-
 @Component({
     selector: 'hs-login-logout',
     templateUrl: './login-logout.component.html',
@@ -44,6 +42,9 @@ export class LoginLogoutComponent implements OnInit, OnDestroy {
         return this.authService.login(this.username, this.password);
     }
 
+    /**
+     * Ausloggen und dabei Benutzername und Passwort zur&uuml;cksetzen.
+     */
     onLogout() {
         console.log('LoginLogoutComponent.onLogout()');
         this.authService.logout();
@@ -51,19 +52,28 @@ export class LoginLogoutComponent implements OnInit, OnDestroy {
     }
 
     /**
-     * Methode, um den injizieretn <code>AuthService</code> zu beobachten,
-     * ob es Login-Informationen gibt. Diese private Mehtode wird in der Mehtode
+     * Methode, um den injizierten <code>AuthService</code> zu beobachten,
+     * ob es Login-Informationen gibt. Diese private Methode wird in der Methode
      * <code>ngOnInit</code> aufgerufen.
      */
     private subscribeLogin() {
         const next = (event: boolean) => {
-            if (this.notLoggedIn && !event) 7;
-            // Noch nicht eingeloggt und ein Login-Event kommt, d.h.
-            // es gab einen Login-Versuch, der aber fehlerhaft (=false) war
-            // TODO: Anzeige des fehlgeschlagenen Logins
+            if (this.notLoggedIn && !event) {
+                // Noch nicht eingeloggt und ein Login-Event kommt, d.h.
+                // es gab einen Login-Versuch, der aber fehlerhaft (= false) war
+                // TODO: Anzeige des fehlgeschlagenen Logins
+                console.warn('AuthComponent: Falsche Login-Daten', event);
+            }
+            this.notLoggedIn = !event;
             console.log('AuthComponent.notLoggedIn:', this.notLoggedIn);
         };
 
+        // Observable.subscribe() aus RxJS liefert ein Subscription Objekt,
+        // mit dem man den Request abbrechen ("cancel") kann
+        // https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/subscribe.md
+        // http://stackoverflow.com/questions/34533197/what-is-the-difference-between-rx-observable-subscribe-and-foreach
+        // https://xgrommx.github.io/rx-book/content/observable/observable_instance_methods/subscribe.html
+        // Funktion als Funktionsargument, d.h. Code als Daten uebergeben
         return this.authService.isLoggedInSubject.subscribe(next);
     }
 }

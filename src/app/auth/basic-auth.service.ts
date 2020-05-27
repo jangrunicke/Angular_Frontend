@@ -83,7 +83,7 @@ export class BasicAuthService {
 
         const json = await response.json();
         console.log('BasicAuthService.login(): json', json);
-        const { roles } = json;
+        // const { roles } = json;
         // Array von Strings als 1 String
         const rolesStr: string = json.join();
         console.log(`BasicAuthService.login(): roles=${rolesStr}`);
@@ -93,6 +93,6 @@ export class BasicAuthService {
             basicAuth,
             rolesStr,
         );
-        return Promise.resolve(roles);
+        return json;
     }
 }

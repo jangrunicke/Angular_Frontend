@@ -4,7 +4,7 @@ import type { Suchkriterien } from '../shared/types';
 import { Title } from '@angular/platform-browser';
 
 @Component({
-    selector: 'hs-suche-kundden',
+    selector: 'hs-suche-kunden',
     templateUrl: './suche-kunden.component.html',
     styleUrls: ['./suche-kunden.component.css'],
 })

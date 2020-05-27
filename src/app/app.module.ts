@@ -1,15 +1,15 @@
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// mport { KundeModule } from './kunde/kunde.module';
 import { FooterModule } from './layout/footer/footer.module';
 import { HeaderModule } from './layout/header/header.module';
-// import { HomeModule } from './home/home.module';
+import { HomeModule } from './home/home.module';
+import { KundeModule } from './kunde/kunde.module';
 import { MainModule } from './layout/main/main.module';
 import { MatButtonModule } from '@angular/material/button';
 import { NgModule } from '@angular/core';
 import { ServiceWorkerModule } from '@angular/service-worker';
-// import { authInterceptorProviders } from './auth/auth.interceptor';
+import { authInterceptorProviders } from './auth/auth.interceptor';
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -26,12 +26,15 @@ import { environment } from '../environments/environment';
         BrowserAnimationsModule,
         MatButtonModule,
 
+        HomeModule,
+        KundeModule,
         AppRoutingModule,
         FooterModule,
         MainModule,
         HeaderModule,
     ],
 
+    providers: [authInterceptorProviders],
     // providers: [authInterceptorProviders],
 
     bootstrap: [AppComponent],
