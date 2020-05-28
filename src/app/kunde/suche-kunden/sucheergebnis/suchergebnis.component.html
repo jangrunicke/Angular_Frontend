@@ -5,7 +5,7 @@
   <hs-waiting *ngIf="waiting; else suchergebnis"></hs-waiting>
 
   <ng-template #suchergebnis>
-    <mat-card>
+    <mat-card *ngIf="kunden.length; else showErrorMsg">
       <mat-card-header>
         <mat-card-title>
           Gefunde B&uuml;cher
