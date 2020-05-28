@@ -1,0 +1,105 @@
+<!-- Template Binding durch die Direktive ngIf -->
+<!-- Eine Direktive ist eine Komponente ohne View -->
+
+<section class="mt-2" aria-label="Suchergebnis">
+  <hs-waiting *ngIf="waiting; else suchergebnis"></hs-waiting>
+
+  <ng-template #suchergebnis>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          Gefunde B&uuml;cher
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <table
+          class="table table-striped table-hover table-responsive"
+          [@easeIn]="'in'"
+        >
+          <thead class="thead-default">
+            <tr>
+              <th>Nr.</th>
+              <th>ID</th>
+              <th>Nachname</th>
+              <th>Email</th>
+              <th>Interessen</th>
+              <th>
+                <span class="sr-only">Spalte f&uuml;r Details</span>
+              </th>
+              <th *ngIf="isAdmin">
+                <span class="sr-only">Spalte f&uuml;r Entfernen</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Template Binding: ngFor -->
+            <!-- Event-Binding: statt (click) auch on-click -->
+            <!-- ts als Komponente: https://stackoverflow.com/questions/34556277/angular2-table-rows-as-component -->
+            <tr
+              *ngFor="let k of kunden; index as i"
+              (click)="onClick(k)"
+              [@easeOut]="'in'"
+            >
+              <td>{{ i + 1 }}</td>
+              <td>{{ k._id }}</td>
+              <td>{{ k.nachname }}</td>
+              <td>{{ k.email }}</td>
+              <td>
+                <span *ngFor="let in of k.interessen">
+                  <span [ngSwitch]="in">
+                    <span *ngSwitchCase="'R'"> Reisen<br /> </span>
+                    <span *ngSwitchCase="'S'"> Sport<br /> </span>
+                    <span *ngSwitchCase="'L'"> Lesen </span>
+                  </span>
+                </span>
+              </td>
+              <td>
+                <!-- Pfad detailsBuch/:id, in routes.ts -->
+                <!-- modaler Dialog als Alternative: -->
+                <!--
+                                        https://getbootstrap.com/docs/4.0/components/modal
+                                    -->
+                <a [routerLink]="['..', k._id]" title="Details anzeigen">
+                  <i class="material-icons">search</i>
+                </a>
+              </td>
+              <td *ngIf="isAdmin">
+                <a (click)="onRemove(k)" title="Entfernen">
+                  <i class="material-icons">delete</i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-card-content>
+      <mat-card-footer>
+        <div>
+          <i class="material-icons">info</i>
+          <span class="ml-1" [ngPlural]="kunden.length">
+            <!-- zu vergleichender Ausdruck -->
+            <ng-template ngPluralCase="=0"> Es gibt keinen Kunden </ng-template>
+            <ng-template ngPluralCase="=1"> Es gibt ein Kunden </ng-template>
+            <ng-template ngPluralCase="other">
+              Es gibt {{ kunden.length }} Kunden
+            </ng-template>
+          </span>
+        </div>
+
+        <div>
+          <i class="material-icons">info</i>
+          <span class="ml-1">
+            Zur Anzeige der JSON-Datens&auml;tze in suchergebnis.html am
+            Dateiende den Kommentar beim Tag &lt;pre&gt; entfernen
+          </span>
+        </div>
+      </mat-card-footer>
+    </mat-card>
+
+    <!-- Ausgabe im Webbrowser statt console.log(...) -->
+    <!-- <pre>{{kunde | json}}</pre> -->
+
+    <ng-template #showErrorMsg>
+      <hs-error-message [text]="errorMsg"></hs-error-message>
+    </ng-template>
+  </ng-template>
+</section>

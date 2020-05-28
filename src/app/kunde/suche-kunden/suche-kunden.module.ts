@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { SucheKundenComponent } from './suche-kunden.component';
-// import { SuchformularModule } from './suchformular/suchformular.module';
+import { SuchergebnisModule } from './sucheergebnis/suchergebnis.module';
 import { SuchformularModule } from './suchformular/suchformular.module';
 
 import { Title } from '@angular/platform-browser';
@@ -12,7 +12,7 @@ import { Title } from '@angular/platform-browser';
 @NgModule({
     declarations: [SucheKundenComponent],
     exports: [SucheKundenComponent],
-    imports: [SuchformularModule],
+    imports: [SuchformularModule, SuchergebnisModule],
     providers: [Title],
 })
 export class SucheKundenModule {}

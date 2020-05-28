@@ -1,6 +1,5 @@
 import { Component, Output, ViewChild } from '@angular/core';
 import { Subject } from 'rxjs';
-import { SucheEmailComponent } from './suche-email.component';
 import { SucheGeschlechtComponent } from './suche-geschlecht.component';
 import { SucheInteressenComponent } from './suche-interessen.component';
 import { SucheNachnameComponent } from './suche-nachname.component';
@@ -28,8 +27,8 @@ export class SuchformularComponent {
     @ViewChild(SucheNachnameComponent, { static: true })
     private readonly sucheNachnameComponent!: SucheNachnameComponent;
 
-    @ViewChild(SucheEmailComponent, { static: true })
-    private readonly sucheEmailComponent!: SucheEmailComponent;
+    // @ViewChild(SucheEmailComponent, { static: true })
+    // private readonly sucheEmailComponent!: SucheEmailComponent;
 
     @ViewChild(SucheGeschlechtComponent, { static: true })
     private readonly sucheGeschlechtComponent!: SucheGeschlechtComponent;
@@ -50,19 +49,18 @@ export class SuchformularComponent {
      */
     onFind() {
         const { nachname } = this.sucheNachnameComponent;
-        const { email } = this.sucheEmailComponent;
+        // const { email } = this.sucheEmailComponent;
         const { geschlecht } = this.sucheGeschlechtComponent;
         const { reisen } = this.sucheInteressenComponent;
         const { sport } = this.sucheInteressenComponent;
         const { lesen } = this.sucheInteressenComponent;
         console.log(
-            `SuchformularComponent.onFind(): titel=${nachname}, verlag=${email},
+            `SuchformularComponent.onFind(): titel=${nachname},
                 geschlecht=${geschlecht}, reisen=${reisen}, lesen=${lesen}, sport=${sport}`,
         );
 
         this.suchkriterien.next({
             nachname,
-            email,
             geschlecht,
             interessen: { lesen, reisen, sport },
         });

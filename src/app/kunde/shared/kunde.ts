@@ -41,6 +41,12 @@ interface Link {
     href: string;
 }
 
+export interface ServerResponse {
+    _embedded: {
+        kundeList: Array<KundeServer>;
+    };
+}
+
 /**
  * Daten vom und zum REST-Server;
  * <ul>

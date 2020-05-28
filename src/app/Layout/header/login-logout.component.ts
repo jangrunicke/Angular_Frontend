@@ -29,7 +29,8 @@ export class LoginLogoutComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         // Initialisierung, falls zwischenzeitlich der Browser geschlossen wurde
-        this.notLoggedIn = !this.authService.isLoggedIn;
+        // this.notLoggedIn = !this.authService.isLoggedIn;
+        this.notLoggedIn = true;
         this.isLoggedInSubscription = this.subscribeLogin();
     }
 

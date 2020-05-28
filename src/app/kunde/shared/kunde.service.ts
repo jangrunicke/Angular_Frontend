@@ -7,7 +7,7 @@ import type {
     ChartData,
     ChartDataSets,
 } from 'chart.js';
-import type { Geschlecht, KundeServer } from './kunde';
+import type { Geschlecht, KundeServer, ServerResponse } from './kunde';
 // Bereitgestellt durch HttpClientModule
 // HttpClientModule enthaelt nur Services, keine Komponenten
 import {
@@ -111,11 +111,21 @@ export class KundeService {
         // https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/subscribe.md
         // http://stackoverflow.com/questions/34533197/what-is-the-difference-between-rx-observable-subscribe-and-foreach
         // https://xgrommx.github.io/rx-book/content/observable/observable_instance_methods/subscribe.html
+        // return this.httpClient
+        //     .get<Array<KundeServer>>(uri, { params })
+        //     .pipe(
+        //         // Pipeable operators
+        //         // http://reactivex.io/documentation/operators.html
+        //         map(jsonArray =>
+        //             jsonArray.map(jsonObjekt => Kunde.fromServer(jsonObjekt)),
+        //         ),
+        //     )
+        //     .subscribe(kunde => this.kundenSubject.next(kunde), errorFn);
         return this.httpClient
-            .get<Array<KundeServer>>(uri, { params })
+            .get<ServerResponse>(uri, { params })
             .pipe(
-                // Pipeable operators
-                // http://reactivex.io/documentation/operators.html
+                map(response => response._embedded),
+                map(embedded => embedded.kundeList),
                 map(jsonArray =>
                     jsonArray.map(jsonObjekt => Kunde.fromServer(jsonObjekt)),
                 ),
@@ -526,14 +536,11 @@ export class KundeService {
             return httpParams;
         }
 
-        const { nachname, email, geschlecht, interessen } = suchkriterien;
+        const { nachname, geschlecht, interessen } = suchkriterien;
         const { lesen, reisen, sport } = interessen;
 
         if (nachname !== '') {
             httpParams = httpParams.set('nachname', nachname);
-        }
-        if (email !== '') {
-            httpParams = httpParams.set('email', email);
         }
         if (geschlecht !== '') {
             httpParams = httpParams.set('geschlecht', geschlecht);
@@ -570,7 +577,6 @@ export class KundeService {
 
 export interface Suchkriterien {
     nachname: string;
-    email: string | '';
     geschlecht: Geschlecht | '';
     interessen: { lesen: boolean; sport: boolean; reisen: boolean };
 }
