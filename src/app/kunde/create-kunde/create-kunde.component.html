@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Neuen Kunden anlegen</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="form" role="form">
+      <div class="form-group row has-warning mb-4" *ngIf="showWarning">
+        <div class="col col-12 form-control-feedback">
+          <span class="alert alert-warning">
+            <i class="material-icons">warning</i>
+            <strong class="text-help ml-1">
+              Wenn Sie die Seite jetzt verlassen, verlieren Sie Ihre
+              eingegebenen Daten.
+            </strong>
+          </span>
+        </div>
+      </div>
+      <hs-create-nachname [form]="form"></hs-create-nachname>
+      <hs-create-email [form]="form"></hs-create-email>
+      <hs-create-kategorie [form]="form"></hs-create-kategorie>
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,15 @@
+<div class="nachname-container">
+  <mat-form-field appearance="standard" [formGroup]="form">
+    <mat-label>Nachname: </mat-label>
+    <input matInput required />
+    <mat-error *ngIf="nachname.errors && nachname.errors.required">
+      Ein Nachname muss eingegeben werden
+    </mat-error>
+    <mat-error *ngIf="nachname.errors && nachname.errors.minlenght">
+      Ein Nachname muss min. 2 Zeichen lang sein
+    </mat-error>
+    <mat-error *ngIf="nachname.errors && nachname.errors.pattern">
+      Ein Nachname muss mit einem Buchstaben beginnen
+    </mat-error>
+  </mat-form-field>
+</div>

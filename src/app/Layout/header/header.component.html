@@ -17,6 +17,15 @@
         <mat-icon>search</mat-icon>
         <span>Suche</span>
       </a>
+      <a
+        mat-list-item
+        *ngIf="isAdmin"
+        routerLink="kunden/create"
+        aria-label="Neuer Kunde anlegen"
+      >
+        <mat-icon>add_box</mat-icon>
+        <span>Neuer Kunde</span>
+      </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

@@ -1,5 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
-// import { AdminGuard } from '../auth/admin.guard';
+import { AdminGuard } from '../auth/admin.guard';
+import { CreateKundeComponent } from './create-kunde/create-kunde.component';
+import { CreateKundeGuard } from './create-kunde/create-kunde.guard';
 import { NgModule } from '@angular/core';
 import { SucheKundenComponent } from './suche-kunden/suche-kunden.component';
 
@@ -9,6 +11,12 @@ const routes: Routes = [
     {
         path: 'suche',
         component: SucheKundenComponent,
+    },
+    {
+        path: 'create',
+        component: CreateKundeComponent,
+        canActivate: [AdminGuard],
+        canDeactivate: [CreateKundeGuard],
     },
 ];
 
