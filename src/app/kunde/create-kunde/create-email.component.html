@@ -1,13 +1,12 @@
 <div>
-    <mat-form-field appearance="standard" [formGroup]="form">
-      <mat-label>Email: </mat-label>
-      <input matInput required />
-      <mat-error *ngIf="email.errors && email.errors.required">
-        Eine E-Mail muss eingegeben werden
-      </mat-error>
-      <mat-error *ngIf="email.errors && email.errors.email">
-        Keine gültige E-Mail
-      </mat-error>
-    </mat-form-field>
+  <mat-form-field appearance="standard" [formGroup]="form">
+    <mat-label>Email: </mat-label>
+    <input matInput required />
+    <mat-error *ngIf="email.errors && email.errors.required">
+      Eine E-Mail muss eingegeben werden
+    </mat-error>
+    <mat-error *ngIf="email.errors && email.errors.email">
+      Keine gültige E-Mail
+    </mat-error>
+  </mat-form-field>
 </div>
-  

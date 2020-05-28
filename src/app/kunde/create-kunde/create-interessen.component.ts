@@ -1,0 +1,25 @@
+import { Component, Input } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import type { OnInit } from '@angular/core';
+
+@Component({
+    selector: 'hs-create-interessen',
+    templateUrl: './create-interessen.component.html',
+    styleUrls: ['./create-interessen.component.css'],
+})
+export class CreateInteressenComponent implements OnInit {
+    @Input()
+    readonly form!: FormGroup;
+
+    readonly reisen = new FormControl(false);
+    readonly lesen = new FormControl(false);
+    readonly sport = new FormControl(false);
+
+    ngOnInit() {
+        console.log('CreateFamilienstandComponent.ngOnInit');
+
+        this.form.addControl('reisen', this.reisen);
+        this.form.addControl('lesen', this.lesen);
+        this.form.addControl('sport', this.sport);
+    }
+}

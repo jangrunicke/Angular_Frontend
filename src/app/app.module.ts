@@ -7,6 +7,7 @@ import { HomeModule } from './home/home.module';
 import { KundeModule } from './kunde/kunde.module';
 import { MainModule } from './layout/main/main.module';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { NgModule } from '@angular/core';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { authInterceptorProviders } from './auth/auth.interceptor';
@@ -32,6 +33,7 @@ import { environment } from '../environments/environment';
         FooterModule,
         MainModule,
         HeaderModule,
+        MatDatepickerModule,
     ],
 
     providers: [authInterceptorProviders],
