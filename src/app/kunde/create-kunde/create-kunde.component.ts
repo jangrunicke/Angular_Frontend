@@ -43,7 +43,7 @@ export class CreateKundeComponent implements OnInit, OnDestroy {
 
     /**
      * Die Methode <code>save</code> realisiert den Event-Handler, wenn das
-     * Formular abgeschickt wird, um ein neues Buch anzulegen.
+     * Formular abgeschickt wird, um ein neuen Kunden anzulegen.
      * @return false, um das durch den Button-Klick ausgel&ouml;ste Ereignis
      *         zu konsumieren.
      */

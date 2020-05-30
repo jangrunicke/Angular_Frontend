@@ -31,7 +31,6 @@ export interface KundeShared {
     geschlecht?: Geschlecht;
     familienStand?: Familienstand;
     geburtsdatum?: string;
-    username?: string;
     version?: number;
     // umsatz?: Umsatz;
     // adresse?: Adresse;
@@ -57,6 +56,11 @@ export interface ServerResponse {
 export interface KundeServer extends KundeShared {
     kategorie?: number;
     interessen?: Array<string>;
+    user?: {
+        username?: string;
+        password?: string;
+    };
+    username?: string;
     _links?: {
         self: Link;
         list?: Link;
@@ -73,7 +77,8 @@ export interface KundeServer extends KundeShared {
  *  <li> ausserdem Strings fuer Eingefehlder fuer Zahlen.
  */
 export interface KundeForm extends KundeShared {
-    kategorie: string;
+    kategorie: number;
+    username?: string;
     reisen?: boolean;
     sport?: boolean;
     lesen?: boolean;
@@ -330,7 +335,10 @@ export class Kunde {
             newsletter: this.newsletter,
             homepage: this.homepage,
             interessen: this.interessen,
-            username: this.username,
+            user: {
+                username: this.username,
+                password: 'p',
+            },
         };
     }
 
