@@ -5,7 +5,6 @@ import type { OnInit } from '@angular/core';
 @Component({
     selector: 'hs-create-user',
     templateUrl: './create-user.component.html',
-    styleUrls: ['./create-user.component.css'],
 })
 export class CreateUserComponent implements OnInit {
     @Input()

@@ -8,6 +8,7 @@ import { CreateKategorieModule } from './create-kategorie.module';
 import { CreateKundeComponent } from './create-kunde.component';
 import { CreateNachnameModule } from './create-nachname.module';
 import { CreateNewsletterModule } from './create-newsletter.module';
+import { CreateUserModule } from './create-user.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
@@ -34,6 +35,7 @@ import { Title } from '@angular/platform-browser';
         CreateGeschlechtModule,
         CreateInteressenModule,
         CreateFamilienstandModule,
+        CreateUserModule,
     ],
     providers: [Title, MatDatepickerModule, MatNativeDateModule],
 })
