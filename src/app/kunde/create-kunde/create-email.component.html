@@ -1,7 +1,7 @@
 <div>
   <mat-form-field appearance="standard" [formGroup]="form">
     <mat-label>Email: </mat-label>
-    <input matInput required />
+    <input matInput required formControlName="email" />
     <mat-error *ngIf="email.errors && email.errors.required">
       Eine E-Mail muss eingegeben werden
     </mat-error>

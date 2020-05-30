@@ -20,6 +20,6 @@ export class CreateKategorieComponent implements OnInit {
     ngOnInit() {
         console.log('CreateKategorieComponent.ngOnInit');
         // siehe formControlName innerhalb @Component({templateUrl: ...})
-        this.form.addControl('rating', this.kategorie);
+        this.form.addControl('kategorie', this.kategorie);
     }
 }

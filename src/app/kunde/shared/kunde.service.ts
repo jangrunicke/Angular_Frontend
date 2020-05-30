@@ -63,7 +63,7 @@ export class KundeService {
     ) {
         this.baseUriKunde = `${BASE_URI}/${KUNDEN_PATH_REST}`;
         console.log(
-            `BuchService.constructor(): baseUriBuch=${this.baseUriKunde}`,
+            `KundeService.constructor(): baseUriKunde=${this.baseUriKunde}`,
         );
     }
 

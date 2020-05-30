@@ -1,23 +1,20 @@
 <div>
   <label class="geschlecht-label">Geschlecht:</label>
   <div [formGroup]="form">
-    <mat-radio-group aria-label="geschlechtInput" class="radio-group">
+    <mat-radio-group aria-label="geschlechtInput" class="radio-group" formControlName="geschlecht">
       <mat-radio-button
-        formControlName="geschlecht"
         name="geschlecht"
         value="M"
       >
         Männlich
       </mat-radio-button>
       <mat-radio-button
-        formControlName="geschlecht"
         name="geschlecht"
         value="W"
       >
         Weiblich
       </mat-radio-button>
       <mat-radio-button
-        formControlName="geschlecht"
         name="geschlecht"
         value="D"
       >
