@@ -16,7 +16,7 @@ export class CreateInteressenComponent implements OnInit {
     readonly sport = new FormControl(false);
 
     ngOnInit() {
-        console.log('CreateFamilienstandComponent.ngOnInit');
+        console.log('CreateInteressenComponent.ngOnInit');
 
         this.form.addControl('reisen', this.reisen);
         this.form.addControl('lesen', this.lesen);

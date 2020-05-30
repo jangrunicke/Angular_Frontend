@@ -24,6 +24,21 @@
       <hs-create-interessen [form]="form"></hs-create-interessen>
       <hs-create-familienstand [form]="form"></hs-create-familienstand>
       <hs-create-user [form]="form"></hs-create-user>
+      <hs-create-homepage [form]="form"></hs-create-homepage>
+
+      <div>
+        <button mat-raised-button color="accent"
+          type="submit"
+          (click)="onSave()"
+          [disabled]="form.invalid">
+            <mat-icon>check</mat-icon>
+            <span>Kunden anlegen</span>
+        </button>
+      </div>
     </form>
   </mat-card-content>
 </mat-card>
+<!-- 
+<div>
+  <hs-error-message [text]="errorMsg"></hs-error-message>
+</div> -->
