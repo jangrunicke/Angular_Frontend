@@ -1,10 +1,9 @@
 <div class="homepage-container">
-    <mat-form-field appearance="standard" [formGroup]="form">
-      <mat-label>Homepage: </mat-label>
-      <input matInput formControlName="homepage"/>
-      <mat-error *ngIf="homepage.errors && homepage.errors.pattern">
-        Keine Gültige Homepage
-      </mat-error>
-    </mat-form-field>
+  <mat-form-field appearance="standard" [formGroup]="form">
+    <mat-label>Homepage: </mat-label>
+    <input matInput formControlName="homepage" />
+    <mat-error *ngIf="homepage.errors && homepage.errors.pattern">
+      Keine Gültige Homepage
+    </mat-error>
+  </mat-form-field>
 </div>
-  

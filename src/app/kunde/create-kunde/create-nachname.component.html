@@ -1,7 +1,7 @@
 <div class="nachname-container">
   <mat-form-field appearance="standard" [formGroup]="form">
     <mat-label>Nachname: </mat-label>
-    <input matInput required formControlName="nachname"/>
+    <input matInput required formControlName="nachname" />
     <mat-error *ngIf="nachname.errors && nachname.errors.required">
       Ein Nachname muss eingegeben werden
     </mat-error>

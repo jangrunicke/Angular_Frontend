@@ -84,6 +84,8 @@ export interface KundeForm extends KundeShared {
     kategorie: number;
     username?: string;
     password?: string;
+    plz?: string;
+    ort?: string;
     reisen?: boolean;
     sport?: boolean;
     lesen?: boolean;
@@ -120,6 +122,8 @@ export class Kunde {
         interessen: Array<string> | undefined,
         public username: string | undefined,
         public password: string | undefined,
+        public ort: string | undefined,
+        public plz: string | undefined,
         public version: number | undefined,
     ) {
         this.interessen = interessen === undefined ? [] : interessen;
@@ -164,6 +168,8 @@ export class Kunde {
             kundeServer.interessen,
             kundeServer.username,
             kundeServer.user?.password,
+            kundeServer.adresse.ort,
+            kundeServer.adresse.plz,
             version,
         );
         console.log('Kunde.fromServer(): kunde=', kunde);
@@ -201,6 +207,8 @@ export class Kunde {
             interessen,
             kundeForm.username,
             kundeForm.password,
+            kundeForm.ort,
+            kundeForm.plz,
             kundeForm.version,
         );
         console.log('Kunde.fromForm(): kunde=', kunde);
@@ -344,8 +352,8 @@ export class Kunde {
             homepage: this.homepage,
             interessen: this.interessen,
             adresse: {
-                plz: '79576',
-                ort: 'Weil',
+                plz: this.plz,
+                ort: this.ort,
             },
             user: {
                 username: this.username,
