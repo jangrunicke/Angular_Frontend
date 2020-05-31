@@ -25,5 +25,6 @@
 }
 
 .letter-spacer {
-  letter-spacing: 0.2em;
+  letter-spacing: 0.01em;
+  font-size: large;
 }
