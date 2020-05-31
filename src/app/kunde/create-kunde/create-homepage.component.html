@@ -2,6 +2,9 @@
   <mat-form-field appearance="standard" [formGroup]="form">
     <mat-label>Homepage: </mat-label>
     <input matInput formControlName="homepage" />
+    <mat-error *ngIf="homepage.errors && homepage.errors.required">
+      Bitte eine Homepage eingeben
+    </mat-error>
     <mat-error *ngIf="homepage.errors && homepage.errors.pattern">
       Keine Gültige Homepage
     </mat-error>

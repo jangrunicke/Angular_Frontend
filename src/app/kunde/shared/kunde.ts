@@ -29,7 +29,7 @@ export interface KundeShared {
     newsletter?: boolean;
     homepage?: string;
     geschlecht?: Geschlecht;
-    familienStand?: Familienstand;
+    familienStand?: Familienstand | '';
     geburtsdatum?: string;
     version?: number;
     // umsatz?: Umsatz;
@@ -113,9 +113,8 @@ export class Kunde {
         public nachname: string,
         public email: string | undefined,
         public kategorie: number | undefined,
-        public familienstand: Familienstand | undefined,
+        public familienstand: Familienstand | undefined | '',
         public geschlecht: Geschlecht | undefined,
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars-experimental
         geburtsdatum: string | undefined,
         public homepage: string | undefined,
         public newsletter: boolean | undefined,
@@ -126,6 +125,8 @@ export class Kunde {
         public plz: string | undefined,
         public version: number | undefined,
     ) {
+        this.geburtsdatum =
+            geburtsdatum === undefined ? new Date() : new Date(geburtsdatum);
         this.interessen = interessen === undefined ? [] : interessen;
         console.log('Kunde(): this=', this);
     }
@@ -340,6 +341,7 @@ export class Kunde {
                 ? undefined
                 : this.geburtsdatum.toISOString();
         console.log(`toJSON(): datum=${geburtsdatum}`);
+        console.log(`toJSON(): familienstand=${this.familienstand}`);
         return {
             _id: this._id,
             nachname: this.nachname,

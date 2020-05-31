@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import type { OnInit } from '@angular/core';
 
 @Component({
@@ -7,12 +7,21 @@ import type { OnInit } from '@angular/core';
     templateUrl: './create-adresse.component.html',
 })
 export class CreateAdresseComponent implements OnInit {
+    private static readonly LENGTH = 5;
+
     @Input()
     readonly form!: FormGroup;
 
-    readonly ort = new FormControl(undefined);
+    readonly ort = new FormControl(undefined, [
+        Validators.required,
+        Validators.pattern(/^\w.*$/u),
+    ]);
 
-    readonly plz = new FormControl(undefined);
+    readonly plz = new FormControl(undefined, [
+        Validators.required,
+        Validators.minLength(CreateAdresseComponent.LENGTH),
+        Validators.maxLength(CreateAdresseComponent.LENGTH),
+    ]);
 
     ngOnInit() {
         console.log('CreateAdresseComponent.ngOnInit');
