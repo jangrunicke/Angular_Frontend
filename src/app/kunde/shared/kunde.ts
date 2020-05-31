@@ -56,6 +56,10 @@ export interface ServerResponse {
 export interface KundeServer extends KundeShared {
     kategorie?: number;
     interessen?: Array<string>;
+    adresse: {
+        plz?: string | undefined;
+        ort?: string | undefined;
+    };
     user?: {
         username?: string;
         password?: string;
@@ -79,6 +83,7 @@ export interface KundeServer extends KundeShared {
 export interface KundeForm extends KundeShared {
     kategorie: number;
     username?: string;
+    password?: string;
     reisen?: boolean;
     sport?: boolean;
     lesen?: boolean;
@@ -114,6 +119,7 @@ export class Kunde {
         public newsletter: boolean | undefined,
         interessen: Array<string> | undefined,
         public username: string | undefined,
+        public password: string | undefined,
         public version: number | undefined,
     ) {
         this.interessen = interessen === undefined ? [] : interessen;
@@ -157,6 +163,7 @@ export class Kunde {
             kundeServer.newsletter,
             kundeServer.interessen,
             kundeServer.username,
+            kundeServer.user?.password,
             version,
         );
         console.log('Kunde.fromServer(): kunde=', kunde);
@@ -193,6 +200,7 @@ export class Kunde {
             kundeForm.newsletter,
             interessen,
             kundeForm.username,
+            kundeForm.password,
             kundeForm.version,
         );
         console.log('Kunde.fromForm(): kunde=', kunde);
@@ -335,9 +343,13 @@ export class Kunde {
             newsletter: this.newsletter,
             homepage: this.homepage,
             interessen: this.interessen,
+            adresse: {
+                plz: '79576',
+                ort: 'Weil',
+            },
             user: {
                 username: this.username,
-                password: 'p',
+                password: this.password,
             },
         };
     }

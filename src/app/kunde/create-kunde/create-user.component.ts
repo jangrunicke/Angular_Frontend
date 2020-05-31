@@ -15,9 +15,12 @@ export class CreateUserComponent implements OnInit {
         Validators.pattern(/^\w*/u),
     ]);
 
+    readonly password = new FormControl(undefined, Validators.required);
+
     ngOnInit() {
         console.log('CreateUserComponent.ngOnInit');
 
         this.form.addControl('username', this.username);
+        this.form.addControl('password', this.password);
     }
 }

@@ -16,7 +16,7 @@ export class CreateHomepageComponent implements OnInit {
     readonly homepage = new FormControl(undefined, [
         Validators.pattern(
             // eslint-disable-next-line max-len
-            /^([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/u,
+            /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/u,
         ),
         // // eslint-disable-next-line array-bracket-newline
     ]);

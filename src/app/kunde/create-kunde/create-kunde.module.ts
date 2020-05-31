@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { CreateAdresseModule } from './create-adresse.module';
 import { CreateEmailModule } from './create-email.module';
 import { CreateFamilienstandModule } from './create-familienstand.module';
 import { CreateGeburtsdatumModule } from './create-geburtsdatum.module';
@@ -44,6 +45,7 @@ import { Title } from '@angular/platform-browser';
         MatButtonModule,
         MatIconModule,
         // ErrorMsgModule,
+        CreateAdresseModule,
     ],
     providers: [Title, MatDatepickerModule, MatNativeDateModule],
 })
