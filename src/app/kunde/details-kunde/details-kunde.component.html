@@ -12,10 +12,15 @@
         <hs-details-stammdaten [kunde]="kunde"></hs-details-stammdaten>
       </mat-tab>
       <mat-tab label="Interessen">
-        <hs-details-interessen [values]="kunde.interessen"></hs-details-interessen>
+        <hs-details-interessen
+          [values]="kunde.interessen"
+        ></hs-details-interessen>
       </mat-tab>
     </mat-tab-group>
-    <hs-details-bearbeiten [id]="kunde._id" *ngIf="isAdmin"></hs-details-bearbeiten>
+    <hs-details-bearbeiten
+      [id]="kunde._id"
+      *ngIf="isAdmin"
+    ></hs-details-bearbeiten>
   </section>
   <ng-template #showErrorMsg>
     <hs-error-message [text]="errorMsg"></hs-error-message>

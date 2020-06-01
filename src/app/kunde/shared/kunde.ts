@@ -277,17 +277,27 @@ export class Kunde {
      * @param newsletter des Kunden
      */
     // eslint-disable-next-line max-params
-    updateStadmmdaten(
+    updateStammdaten(
         nachname: string,
+        email: string | undefined,
         kategorie: number | undefined,
+        geburtsdatum: Date | undefined,
+        homepage: string,
+        geschlecht: Geschlecht | undefined,
         familienStand: Familienstand | undefined,
-        homepage: string | undefined,
+        plz: string,
+        ort: string,
         newsletter: boolean | undefined,
     ) {
         this.nachname = nachname;
+        this.email = email;
         this.kategorie = kategorie;
-        this.familienstand = familienStand;
+        this.geburtsdatum = geburtsdatum;
         this.homepage = homepage;
+        this.geschlecht = geschlecht;
+        this.familienstand = familienStand;
+        this.plz = plz;
+        this.ort = ort;
         this.newsletter = newsletter;
     }
 
@@ -299,7 +309,8 @@ export class Kunde {
         if (this.interessen === undefined) {
             return false;
         }
-        return this.interessen.length !== 0;
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+        return this.interessen?.length !== 0;
     }
 
     /**
