@@ -1,7 +1,10 @@
-<div class="row mt-2">
-    <label class="col col-1"> Newsletter </label>
-    <mat-icon *ngIf="newsletter; else keinNewsletter" color="primary">check_box</mat-icon>
-    <ng-template #keinNewsletter>
-        <mat-icon>check_box_outline_blank</mat-icon>
-    </ng-template>
+<div>
+    <label> Newsletter </label>
+    <span>
+        <mat-icon *ngIf="newsletter; else keinNewsletter" color="primary">check_box</mat-icon>
+        <ng-template #keinNewsletter>
+            <mat-icon>check_box_outline_blank</mat-icon>
+        </ng-template>
+    </span>
+
   </div>

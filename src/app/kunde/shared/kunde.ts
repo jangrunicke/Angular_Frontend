@@ -29,7 +29,7 @@ export interface KundeShared {
     newsletter?: boolean;
     homepage?: string;
     geschlecht?: Geschlecht;
-    familienStand?: Familienstand;
+    familienStand?: Familienstand | '';
     geburtsdatum?: string;
     version?: number;
     // umsatz?: Umsatz;
@@ -113,7 +113,7 @@ export class Kunde {
         public nachname: string,
         public email: string | undefined,
         public kategorie: number | undefined,
-        public familienstand: Familienstand | undefined,
+        public familienstand: Familienstand | undefined | '',
         public geschlecht: Geschlecht | undefined,
         geburtsdatum: string | undefined,
         public homepage: string | undefined,
@@ -155,6 +155,8 @@ export class Kunde {
             const versionStr = etag.slice(1, -1);
             version = Number.parseInt(versionStr, 10);
         }
+
+        console.log('Kunde, wie er vom Server kommt=', kundeServer);
 
         const kunde = new Kunde(
             id,
