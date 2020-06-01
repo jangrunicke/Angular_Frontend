@@ -1,6 +1,8 @@
 <hs-waiting *ngIf="waiting; else details"></hs-waiting>
 
 <ng-template #details>
+  <hs-details-breadcrumbs></hs-details-breadcrumbs>
+
   <section *ngIf="kunde; else showErrorMsg">
     <mat-toolbar color="primary">
       <span *ngIf="kunde; else showErrorMsg">Kunde {{ kunde._id }}:</span>
@@ -13,6 +15,7 @@
         <hs-details-interessen [values]="kunde.interessen"></hs-details-interessen>
       </mat-tab>
     </mat-tab-group>
+    <hs-details-bearbeiten [id]="kunde._id" *ngIf="isAdmin"></hs-details-bearbeiten>
   </section>
   <ng-template #showErrorMsg>
     <hs-error-message [text]="errorMsg"></hs-error-message>

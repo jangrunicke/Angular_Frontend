@@ -1,4 +1,6 @@
 import { CommonModule } from '@angular/common';
+import { DetailsBearbeitenModule } from './details-bearbeiten.module';
+import { DetailsBreadcrumbsModule } from './details-breadcrumbs.module';
 import { DetailsInteressenModule } from './interessen/details-interessen.module';
 import { DetailsKundeComponent } from './details-kunde.component';
 import { DetailsStammdatenModule } from './stammdaten/details-stammdaten.module';
@@ -23,6 +25,8 @@ import { WaitingModule } from '../../shared/waiting.module';
         MatTabsModule,
         DetailsStammdatenModule,
         DetailsInteressenModule,
+        DetailsBreadcrumbsModule,
+        DetailsBearbeitenModule,
     ],
 })
 export class DetailsKundeModule {}
