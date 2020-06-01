@@ -17,6 +17,7 @@ import { Title } from '@angular/platform-browser';
 @Component({
     selector: 'hs-update-kunde',
     templateUrl: './update-kunde.component.html',
+    styleUrls: ['./update-kunde.component.css'],
 })
 export class UpdateKundeComponent implements OnInit, OnDestroy {
     kunde: Kunde | undefined;

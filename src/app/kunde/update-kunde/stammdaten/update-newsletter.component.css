@@ -1,6 +1,7 @@
 div {
+    margin-top: 10px;
+    margin-bottom: 0px;
     font-size: medium;
-    margin-top: 0px;
 }
 
 label {

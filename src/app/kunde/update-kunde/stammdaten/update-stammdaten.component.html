@@ -16,4 +16,24 @@
     [form]="form"
     [currentValue]="kunde.plz">
   </hs-update-plz>
+  <hs-update-ort
+    [form]="form"
+    [currentValue]="kunde.ort">
+  </hs-update-ort>
+  <hs-update-newsletter
+    [form]="form"
+    [currentValue]="kunde.newsletter">
+  </hs-update-newsletter>
+
+  <div>
+    <button mat-raised-button color="accent"
+      (click)="onUpdate()"
+      type="submit"
+      [disabled]="form.pristine"
+    >
+    Stammdaten aktualisieren</button>
+  </div>
+  <div>
+    
+  </div>
 </form>
