@@ -14,6 +14,6 @@ export class DetailsHomepageComponent implements OnInit {
     readonly homepage: string | undefined;
 
     ngOnInit() {
-        console.log(`DetailsEmailComponent.email=${this.homepage}`);
+        console.log(`DetailsEmailComponent.homepage=${this.homepage}`);
     }
 }

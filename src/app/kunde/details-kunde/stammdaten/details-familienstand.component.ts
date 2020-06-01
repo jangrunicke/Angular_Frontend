@@ -16,7 +16,7 @@ export class DetailsFamilienstandComponent implements OnInit {
 
     ngOnInit() {
         console.log(
-            `DetailsFamilienstandComponent.verlag=${this.familienstand}`,
+            `DetailsFamilienstandComponent.familienstand=${this.familienstand}`,
         );
     }
 }

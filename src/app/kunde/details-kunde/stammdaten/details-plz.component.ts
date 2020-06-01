@@ -14,6 +14,6 @@ export class DetailsPlzComponent implements OnInit {
     readonly plz: string | undefined;
 
     ngOnInit() {
-        console.log(`DetailsPlzComponent.email=${this.plz}`);
+        console.log(`DetailsPlzComponent.plz=${this.plz}`);
     }
 }

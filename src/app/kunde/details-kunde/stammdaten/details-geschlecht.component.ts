@@ -15,6 +15,6 @@ export class DetailsGeschlechtComponent implements OnInit {
     readonly geschlecht: Geschlecht | undefined;
 
     ngOnInit() {
-        console.log(`DetailsGeschlechtComponent.art=${this.geschlecht}`);
+        console.log(`DetailsGeschlechtComponent.geschlecht=${this.geschlecht}`);
     }
 }

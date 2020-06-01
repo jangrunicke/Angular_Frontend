@@ -14,6 +14,6 @@ export class DetailsOrtComponent implements OnInit {
     readonly ort: string | undefined;
 
     ngOnInit() {
-        console.log(`DetailsOrtComponent.email=${this.ort}`);
+        console.log(`DetailsOrtComponent.ort=${this.ort}`);
     }
 }
