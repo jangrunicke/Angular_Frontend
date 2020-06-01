@@ -6,6 +6,9 @@ import { DetailsGeschlechtModule } from './details-geschlecht.module';
 import { DetailsHomepageModule } from './details-homepage.module';
 import { DetailsKategorieModule } from './details-kategorie.module';
 import { DetailsNachnameModule } from './details-nachname.module';
+import { DetailsNewsletterModule } from './details-newsletter.module';
+import { DetailsOrtModule } from './details-ort.module';
+import { DetailsPlzModule } from './details-plz.module';
 import { DetailsStammdatenComponent } from './details-stammdaten.component';
 import { NgModule } from '@angular/core';
 
@@ -21,6 +24,9 @@ import { NgModule } from '@angular/core';
         DetailsHomepageModule,
         DetailsGeschlechtModule,
         DetailsFamilienstandModule,
+        DetailsPlzModule,
+        DetailsOrtModule,
+        DetailsNewsletterModule,
     ],
 })
 export class DetailsStammdatenModule {}
