@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { DetailsEmailModule } from './details-email.module';
+import { DetailsFamilienstandModule } from './details-familienstand.module';
 import { DetailsGeburtsdatumModule } from './details-geburtsdatum.module';
 import { DetailsGeschlechtModule } from './details-geschlecht.module';
 import { DetailsHomepageModule } from './details-homepage.module';
@@ -19,6 +20,7 @@ import { NgModule } from '@angular/core';
         DetailsGeburtsdatumModule,
         DetailsHomepageModule,
         DetailsGeschlechtModule,
+        DetailsFamilienstandModule,
     ],
 })
 export class DetailsStammdatenModule {}

@@ -12,7 +12,7 @@ import type { OnInit } from '@angular/core';
 })
 export class DetailsGeschlechtComponent implements OnInit {
     @Input()
-    readonly geschlecht!: Geschlecht;
+    readonly geschlecht: Geschlecht | undefined;
 
     ngOnInit() {
         console.log(`DetailsGeschlechtComponent.art=${this.geschlecht}`);

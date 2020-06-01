@@ -8,7 +8,7 @@ import type { OnInit } from '@angular/core';
 })
 export class DetailsKategorieComponent implements OnInit {
     @Input()
-    readonly kategorieArray: Array<boolean> | undefined;
+    readonly kategorieArray: Array<boolean>;
 
     ngOnInit() {
         console.log(
