@@ -9,7 +9,9 @@
       <mat-tab label="Stammdaten">
         <hs-details-stammdaten [kunde]="kunde"></hs-details-stammdaten>
       </mat-tab>
-      <mat-tab label="Interessen">Interessen</mat-tab>
+      <mat-tab label="Interessen">
+        <hs-details-interessen [values]="kunde.interessen"></hs-details-interessen>
+      </mat-tab>
     </mat-tab-group>
   </section>
   <ng-template #showErrorMsg>

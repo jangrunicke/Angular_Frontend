@@ -545,14 +545,28 @@ export class KundeService {
         if (geschlecht !== '') {
             httpParams = httpParams.set('geschlecht', geschlecht);
         }
+        // if (reisen) {
+        //     httpParams = httpParams.set('reisen', 'true');
+        // }
+        // if (lesen) {
+        //     httpParams = httpParams.set('lesen', 'true');
+        // }
+        // if (sport) {
+        //     httpParams = httpParams.set('sport', 'true');
+        // }
+        const interessenStrings: Array<string> = [];
         if (reisen) {
-            httpParams = httpParams.set('reisen', 'true');
+            interessenStrings.push('R');
         }
         if (lesen) {
-            httpParams = httpParams.set('lesen', 'true');
+            interessenStrings.push('L');
         }
         if (sport) {
-            httpParams = httpParams.set('sport', 'true');
+            interessenStrings.push('S');
+        }
+        if (interessenStrings.length !== 0) {
+            const interessenStr = interessenStrings.join(',');
+            httpParams = httpParams.set('interessen', interessenStr);
         }
         return httpParams;
     }

@@ -29,7 +29,7 @@ export interface KundeShared {
     newsletter?: boolean;
     homepage?: string;
     geschlecht?: Geschlecht;
-    familienStand?: Familienstand | '';
+    familienstand?: Familienstand | '';
     geburtsdatum?: string;
     version?: number;
     // umsatz?: Umsatz;
@@ -163,7 +163,7 @@ export class Kunde {
             kundeServer.nachname,
             kundeServer.email,
             kundeServer.kategorie,
-            kundeServer.familienStand,
+            kundeServer.familienstand,
             kundeServer.geschlecht,
             kundeServer.geburtsdatum,
             kundeServer.homepage,
@@ -202,7 +202,7 @@ export class Kunde {
             kundeForm.nachname,
             kundeForm.email,
             Number(kundeForm.kategorie),
-            kundeForm.familienStand,
+            kundeForm.familienstand,
             kundeForm.geschlecht,
             kundeForm.geburtsdatum,
             kundeForm.homepage,
@@ -350,7 +350,7 @@ export class Kunde {
             email: this.email,
             kategorie: this.kategorie,
             geschlecht: this.geschlecht,
-            familienStand: this.familienstand,
+            familienstand: this.familienstand,
             geburtsdatum,
             newsletter: this.newsletter,
             homepage: this.homepage,

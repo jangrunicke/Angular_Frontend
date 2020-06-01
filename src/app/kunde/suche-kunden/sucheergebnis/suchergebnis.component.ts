@@ -1,6 +1,6 @@
 /* eslint-disable max-classes-per-file */
 // Bereitgestellt durch das RouterModule
-// import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, Input } from '@angular/core';
 import { HttpStatus, easeIn, easeOut } from '../../../shared';
 import { Kunde, KundeService } from '../../shared';
@@ -36,11 +36,11 @@ export class SuchergebnisComponent implements OnChanges, OnInit, OnDestroy {
     private removeDescription: Subscription | undefined;
 
     // Empfehlung: Konstruktor nur fuer DI
-    // // eslint-disable-next-line max-params
+    // eslint-disable-next-line max-params
     constructor(
         private readonly kundeService: KundeService,
-        // private readonly route: ActivatedRoute,
-        // private readonly router: Router,
+        private readonly route: ActivatedRoute,
+        private readonly router: Router,
         private readonly authService: AuthService,
     ) {
         console.log('SuchergebnisComponent.constructor()');
@@ -85,15 +85,15 @@ export class SuchergebnisComponent implements OnChanges, OnInit, OnDestroy {
     onClick(kunde: Kunde) {
         console.log('SuchergebnisComponent.onSelect(): kunde=', kunde);
         // Puffern im Singleton, um nicht erneut zu suchen
-        // this.kundeService.kunde = kunde;
-        // // TODO: NavigationExtras beim Routing
-        // // https://github.com/angular/angular/pull/27198
-        // // https://github.com/angular/angular/commit/67f4a5d4bd3e8e6a35d85500d630d94db061900b
-        // /* eslint-disable object-curly-newline */
-        // return this.router.navigate(['..', kunde._id], {
-        //     relativeTo: this.route,
-        // });
-        // /* eslint-enable object-curly-newline */
+        this.kundeService.kunde = kunde;
+        // TODO: NavigationExtras beim Routing
+        // https://github.com/angular/angular/pull/27198
+        // https://github.com/angular/angular/commit/67f4a5d4bd3e8e6a35d85500d630d94db061900b
+        /* eslint-disable object-curly-newline */
+        return this.router.navigate(['..', kunde._id], {
+            relativeTo: this.route,
+        });
+        /* eslint-enable object-curly-newline */
     }
 
     /**
