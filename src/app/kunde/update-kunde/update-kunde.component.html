@@ -7,8 +7,7 @@
       <hs-update-stammdaten [kunde]="kunde"></hs-update-stammdaten>
     </mat-tab>
     <mat-tab label="Interessen" *ngIf="kunde.hasInteressen()">
-      <!-- <hs-update-interessen [kunde]="kunde"></hs-update-interessen> -->
-      Interessen
+      <hs-update-interessen [kunde]="kunde"></hs-update-interessen>
     </mat-tab>
   </mat-tab-group>
 </section>
