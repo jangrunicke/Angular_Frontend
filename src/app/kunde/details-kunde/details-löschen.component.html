@@ -16,10 +16,10 @@
 -->
 
 <span>
-  <a [routerLink]="['..', id, 'update']" aria-label="Kunde bearbeiten">
+  <a (click)="onRemove()" aria-label="Kunde löschen">
     <button mat-raised-button color="accent">
-      <mat-icon>create</mat-icon>
-      <span>Bearbeiten</span>
+      <mat-icon>delete</mat-icon>
+      <span>Kunde löschen</span>
     </button>
   </a>
 </span>

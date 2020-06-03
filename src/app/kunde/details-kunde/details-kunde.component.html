@@ -17,10 +17,12 @@
         ></hs-details-interessen>
       </mat-tab>
     </mat-tab-group>
+    <div class="spacer"></div>
     <hs-details-bearbeiten
       [id]="kunde._id"
       *ngIf="isAdmin"
     ></hs-details-bearbeiten>
+    <hs-details-loeschen [kunde]="kunde" *ngIf="isAdmin"></hs-details-loeschen>
   </section>
   <ng-template #showErrorMsg>
     <hs-error-message [text]="errorMsg"></hs-error-message>

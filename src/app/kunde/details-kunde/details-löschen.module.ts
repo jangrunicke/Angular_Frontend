@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 - present Juergen Zimmermann, Hochschule Karlsruhe
+ * Copyright (C) 2019 - present Juergen Zimmermann, Hochschule Karlsruhe
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,21 +15,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import { Component, Input } from '@angular/core';
-import type { OnInit } from '@angular/core';
-/**
- * Komponente f&uuml;r das Tag <code>hs-details-bearbeiten</code>
- */
-@Component({
-    selector: 'hs-details-bearbeiten',
-    templateUrl: './details-bearbeiten.component.html',
-    styleUrls: ['./details-bearbeiten.component.css'],
-})
-export class DetailsBearbeitenComponent implements OnInit {
-    @Input()
-    readonly id: string | undefined;
+import { CommonModule } from '@angular/common';
+import { DetailsLöschenComponent } from './details-löschen.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
-    ngOnInit() {
-        console.log(`DetailsBearbeitenComponent.id=${this.id}`);
-    }
-}
+@NgModule({
+    declarations: [DetailsLöschenComponent],
+    exports: [DetailsLöschenComponent],
+    imports: [CommonModule, RouterModule, MatIconModule, MatButtonModule],
+})
+export class DetailsLöschenModule {}

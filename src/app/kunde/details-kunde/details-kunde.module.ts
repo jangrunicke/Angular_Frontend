@@ -3,6 +3,7 @@ import { DetailsBearbeitenModule } from './details-bearbeiten.module';
 import { DetailsBreadcrumbsModule } from './details-breadcrumbs.module';
 import { DetailsInteressenModule } from './interessen/details-interessen.module';
 import { DetailsKundeComponent } from './details-kunde.component';
+import { DetailsLöschenModule } from './details-löschen.module';
 import { DetailsStammdatenModule } from './stammdaten/details-stammdaten.module';
 import { ErrorMessageModule } from '../../shared/error-message.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -27,6 +28,7 @@ import { WaitingModule } from '../../shared/waiting.module';
         DetailsInteressenModule,
         DetailsBreadcrumbsModule,
         DetailsBearbeitenModule,
+        DetailsLöschenModule,
     ],
 })
 export class DetailsKundeModule {}

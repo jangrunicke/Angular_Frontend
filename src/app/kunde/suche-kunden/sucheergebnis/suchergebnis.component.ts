@@ -27,6 +27,12 @@ export class SuchergebnisComponent implements OnChanges, OnInit, OnDestroy {
 
     waiting = false;
 
+    displayedColumns: Array<string> = [
+        '_id',
+        'nachname',
+        'email',
+        'interessen',
+    ];
     kunden: Array<Kunde> = [];
     errorMsg: string | undefined;
     isAdmin!: boolean;
