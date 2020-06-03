@@ -365,9 +365,11 @@ export class KundeService {
         console.log('KundeService.createBarChart()');
         const uri = this.baseUriKunde;
         return this.httpClient
-            .get<Array<KundeServer>>(uri)
+            .get<ServerResponse>(uri)
             .pipe(
                 // ID aus Self-Link
+                map(response => response._embedded),
+                map(embedded => embedded.kundeList),
                 map(kunden => kunden.map(kunde => this.setKundeId(kunde))),
                 map(kunden => {
                     const kundenGueltig = kunden.filter(
@@ -415,8 +417,10 @@ export class KundeService {
         const uri = this.baseUriKunde;
 
         return this.httpClient
-            .get<Array<KundeServer>>(uri)
+            .get<ServerResponse>(uri)
             .pipe(
+                map(response => response._embedded),
+                map(embedded => embedded.kundeList),
                 // ID aus Self-Link
                 map(kunden => kunden.map(b => this.setKundeId(b))),
                 map(kunden => {
@@ -465,8 +469,10 @@ export class KundeService {
         const uri = this.baseUriKunde;
 
         return this.httpClient
-            .get<Array<KundeServer>>(uri)
+            .get<ServerResponse>(uri)
             .pipe(
+                map(response => response._embedded),
+                map(embedded => embedded.kundeList),
                 // ID aus Self-Link
                 map(kunden => kunden.map(kunde => this.setKundeId(kunde))),
                 map(kunden => {

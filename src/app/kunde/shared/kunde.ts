@@ -292,6 +292,10 @@ export class Kunde {
         this.nachname = nachname;
         this.email = email;
         this.kategorie = kategorie;
+        this.kategorieArray =
+            kategorie === undefined
+                ? new Array(MAX_RATING - MIN_RATING).fill(false)
+                : new Array(kategorie - MIN_RATING).fill(true);
         this.geburtsdatum = geburtsdatum;
         this.homepage = homepage;
         this.geschlecht = geschlecht;

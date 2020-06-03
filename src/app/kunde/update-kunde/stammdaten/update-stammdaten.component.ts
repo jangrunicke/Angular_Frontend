@@ -69,7 +69,7 @@ export class UpdateStammdatenComponent implements OnInit, OnDestroy {
         this.kunde.updateStammdaten(
             this.kunde.nachname,
             this.kunde.email,
-            this.form.value.kategorie,
+            this.kunde.kategorie,
             this.kunde.geburtsdatum,
             this.form.value.homepage,
             this.form.value.geschlecht,

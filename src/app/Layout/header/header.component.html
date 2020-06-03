@@ -26,6 +26,33 @@
         <mat-icon>add_box</mat-icon>
         <span>Neuer Kunde</span>
       </a>
+      <a
+        mat-list-item
+        *ngIf="isAdmin"
+        routerLink="kunden/balkendiagramm"
+        aria-label="balkendiagramm fuer die kategorie"
+      >
+        <mat-icon>bar_chart</mat-icon>
+        <span>Balkendiagramm</span>
+      </a>
+      <a
+        mat-list-item
+        *ngIf="isAdmin"
+        routerLink="kunden/liniendiagramm"
+        aria-label="Liniendiagramm fuer die Kategorie"
+      >
+        <mat-icon>multiline_chart</mat-icon>
+        <span>Liniendiagramm</span>
+      </a>
+      <a
+        mat-list-item
+        *ngIf="isAdmin"
+        routerLink="kunden/tortendiagramm"
+        aria-label="Tortendiagramm fuer die Kategorie"
+      >
+        <mat-icon>pie_chart</mat-icon>
+        <span>Tortendiagramm</span>
+      </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

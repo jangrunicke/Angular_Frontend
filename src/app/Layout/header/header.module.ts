@@ -20,6 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTreeModule } from '@angular/material/tree';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
@@ -37,6 +38,7 @@ import { RouterModule } from '@angular/router';
         MatListModule,
         LayoutModule,
         RouterModule,
+        MatTreeModule,
     ],
 })
 export class HeaderModule {}
