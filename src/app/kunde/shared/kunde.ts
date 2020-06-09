@@ -10,6 +10,13 @@ export interface KundePut {
     _id?: string;
     nachname: string;
     email?: string;
+    kategorie?: number;
+    newsletter?: boolean;
+    geburtsdatum?: string;
+    homepage?: string;
+    geschlecht?: Geschlecht | undefined;
+    familienstand?: Familienstand | '';
+    interessen?: Array<string>;
     adresse: {
         plz: string | undefined;
         ort: string | undefined;
@@ -396,9 +403,20 @@ export class Kunde {
      * @return Das JSON-Objekt fuer den RESTful Web Service (PUT)
      */
     toJSONPut(): KundePut {
+        const geburtsdatum =
+            this.geburtsdatum === undefined
+                ? undefined
+                : this.geburtsdatum.toISOString();
         return {
             nachname: this.nachname,
             email: this.email,
+            kategorie: this.kategorie,
+            newsletter: this.newsletter,
+            geburtsdatum,
+            homepage: this.homepage,
+            geschlecht: this.geschlecht,
+            familienstand: this.familienstand,
+            interessen: this.interessen,
             adresse: {
                 plz: this.plz,
                 ort: this.ort,
