@@ -6,6 +6,16 @@
 const MIN_RATING = 0;
 const MAX_RATING = 5;
 
+export interface KundePut {
+    _id?: string;
+    nachname: string;
+    email?: string;
+    adresse: {
+        plz: string | undefined;
+        ort: string | undefined;
+    };
+}
+
 export enum Geschlecht {
     MAENNLICH = 'M',
     WEIBLICH = 'W',
@@ -377,6 +387,21 @@ export class Kunde {
             user: {
                 username: this.username,
                 password: this.password,
+            },
+        };
+    }
+
+    /**
+     * Konvertierung des Kundenobjekts in ein JSON-Objekt fuer den RESTful WebService (PUT)
+     * @return Das JSON-Objekt fuer den RESTful Web Service (PUT)
+     */
+    toJSONPut(): KundePut {
+        return {
+            nachname: this.nachname,
+            email: this.email,
+            adresse: {
+                plz: this.plz,
+                ort: this.ort,
             },
         };
     }

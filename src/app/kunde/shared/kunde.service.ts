@@ -322,7 +322,7 @@ export class KundeService {
         });
         console.log('headers=', headers);
         return this.httpClient
-            .put(uri, kunde, { headers })
+            .put(uri, kunde.toJSONPut(), { headers })
             .subscribe(successFnPut, errorFnPut);
     }
 
