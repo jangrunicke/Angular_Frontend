@@ -87,12 +87,14 @@ export class BasicAuthService {
         // Array von Strings als 1 String
         const rolesStr: string = json.join();
         console.log(`BasicAuthService.login(): roles=${rolesStr}`);
+        // eslint-disable-next-line prefer-destructuring
+        const rolesArray: Array<string> = json[0];
 
         this.cookieService.saveAuthorization(
             // Base64-String fuer 1 Tag speichern
             basicAuth,
             rolesStr,
         );
-        return json;
+        return rolesArray;
     }
 }
