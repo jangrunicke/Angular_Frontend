@@ -1,9 +1,8 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, Input } from '@angular/core';
 import { Kunde, KundeService } from '../../shared';
 import type { OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { HOME_PATH } from '../../../shared';
-import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 /**
@@ -25,6 +24,7 @@ export class UpdateStammdatenComponent implements OnInit, OnDestroy {
     constructor(
         private readonly kundeService: KundeService,
         private readonly router: Router,
+        private readonly route: ActivatedRoute,
     ) {
         console.log('UpdateStammdatenComponent.constructor()');
     }
@@ -82,10 +82,10 @@ export class UpdateStammdatenComponent implements OnInit, OnDestroy {
 
         const successFn = () => {
             console.log(
-                `UpdateStammdaten.onUpdate(): successFn: path: ${HOME_PATH}`,
+                `UpdateStammdaten.onUpdate(): successFn: path: kunden/${this.kunde._id}`,
             );
             this.router
-                .navigate([HOME_PATH])
+                .navigate(['..'], { relativeTo: this.route })
                 .then(
                     navResult => {
                         if (navResult) {

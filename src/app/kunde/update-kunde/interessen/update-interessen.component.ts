@@ -1,9 +1,9 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Kunde, KundeService } from '../../shared';
 import type { OnDestroy, OnInit } from '@angular/core';
 import { HOME_PATH } from '../../../shared';
-import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 /**
@@ -30,6 +30,7 @@ export class UpdateInteressenComponent implements OnInit, OnDestroy {
     constructor(
         private readonly kundeservice: KundeService,
         private readonly router: Router,
+        private readonly route: ActivatedRoute,
     ) {
         console.log('UpdateInteressenComponent.constructor()');
     }
@@ -108,7 +109,7 @@ export class UpdateInteressenComponent implements OnInit, OnDestroy {
                 `UpdateInteressenComponent.onUpdate(): successFn: path: ${HOME_PATH}`,
             );
             this.router
-                .navigate([HOME_PATH])
+                .navigate(['..'], { relativeTo: this.route })
                 .then(
                     navResult => {
                         if (navResult) {
