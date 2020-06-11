@@ -19,7 +19,7 @@ export class UpdatePlzComponent implements OnInit {
 
     plz!: FormControl;
 
-    private readonly LENGTH = 2;
+    private readonly LENGTH = 5;
 
     ngOnInit() {
         console.log(
