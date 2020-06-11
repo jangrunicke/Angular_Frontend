@@ -19,6 +19,7 @@ export class UpdateInteressenComponent implements OnInit, OnDestroy {
     @Input()
     readonly kunde!: Kunde;
 
+    hasInteressen: boolean;
     form!: FormGroup;
     reisen!: FormControl;
     lesen!: FormControl;
@@ -40,13 +41,24 @@ export class UpdateInteressenComponent implements OnInit, OnDestroy {
     ngOnInit() {
         console.log('kunde=', this.kunde);
 
-        // Definition und Vorbelegung der Eingabedaten (hier: Checkbox)
-        const hasReisen = this.kunde.hasInteresse('R');
-        this.reisen = new FormControl(hasReisen);
-        const hasLesen = this.kunde.hasInteresse('L');
-        this.lesen = new FormControl(hasLesen);
-        const hasSport = this.kunde.hasInteresse('S');
-        this.sport = new FormControl(hasSport);
+        // eslint-disable-next-line no-null/no-null
+        if (this.kunde.interessen === null) {
+            this.hasInteressen = false;
+
+            this.reisen = new FormControl(false);
+            this.lesen = new FormControl(false);
+            this.sport = new FormControl(false);
+        } else {
+            this.hasInteressen = true;
+
+            // Definition und Vorbelegung der Eingabedaten (hier: Checkbox)
+            const hasReisen = this.kunde.hasInteresse('R');
+            this.reisen = new FormControl(hasReisen);
+            const hasLesen = this.kunde.hasInteresse('L');
+            this.lesen = new FormControl(hasLesen);
+            const hasSport = this.kunde.hasInteresse('S');
+            this.sport = new FormControl(hasSport);
+        }
 
         this.form = new FormGroup({
             // siehe ngFormControl innerhalb von @Component({template: `...`})
